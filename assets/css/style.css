@@ -432,6 +432,49 @@ ul {
   font-size: 1.4rem;
 }
 
+/* Branded colors for tech icons */
+.tech-tag .fa-python { color: #3776AB !important; }
+.tech-tag .fa-java { color: #ED8B00 !important; }
+.tech-tag .fa-microchip { color: #A8B9CC !important; }
+.tech-tag .fa-code { color: #68217A !important; }
+.tech-tag .fa-js { color: #F7DF1E !important; }
+.tech-tag .fa-html5 { color: #E34F26 !important; }
+.tech-tag .fa-php { color: #777BB4 !important; }
+.tech-tag .fa-database { color: #4479A1 !important; }
+.tech-tag .fa-flask { color: #FFFFFF !important; }
+.tech-tag .fa-table { color: #150458 !important; }
+.tech-tag .fa-chart-line { color: #11557C !important; }
+.tech-tag .fa-chart-pie { color: #FF9933 !important; }
+.tech-tag .fa-linux { color: #FCC624 !important; }
+.tech-tag .fa-terminal { color: #4EAA25 !important; }
+.tech-tag .fa-git-alt { color: #F05032 !important; }
+.tech-tag .fa-docker { color: #2496ED !important; }
+.tech-tag .fa-project-diagram { color: #FABD14 !important; }
+.tech-tag .fa-network-wired { color: #1679A7 !important; }
+
+/* Keep icon colors on hover */
+.tech-tag:hover i {
+  color: inherit;
+}
+.tech-tag:hover .fa-python { color: #3776AB; }
+.tech-tag:hover .fa-java { color: #ED8B00; }
+.tech-tag:hover .fa-microchip { color: #0b0e14; }
+.tech-tag:hover .fa-code { color: #68217A; }
+.tech-tag:hover .fa-js { color: #F7DF1E; }
+.tech-tag:hover .fa-html5 { color: #E34F26; }
+.tech-tag:hover .fa-php { color: #777BB4; }
+.tech-tag:hover .fa-database { color: #4479A1; }
+.tech-tag:hover .fa-flask { color: #0b0e14; }
+.tech-tag:hover .fa-table { color: #150458; }
+.tech-tag:hover .fa-chart-line { color: #11557C; }
+.tech-tag:hover .fa-chart-pie { color: #FF9933; }
+.tech-tag:hover .fa-linux { color: #FCC624; }
+.tech-tag:hover .fa-terminal { color: #4EAA25; }
+.tech-tag:hover .fa-git-alt { color: #F05032; }
+.tech-tag:hover .fa-docker { color: #2496ED; }
+.tech-tag:hover .fa-project-diagram { color: #FABD14; }
+.tech-tag:hover .fa-network-wired { color: #1679A7; }
+
 /* === 7. PROJECTS === */
 .section-subtitle {
   color: var(--text-secondary);
@@ -567,7 +610,56 @@ ul {
   display: grid;
   grid-template-columns: 1fr 1.5fr;
   gap: 40px;
-  align-items: start;
+  align-items: stretch;
+}
+
+/* Quick Email Alternative Section */
+.quick-email-section {
+  background: linear-gradient(135deg, var(--bg-card) 0%, rgba(56, 189, 248, 0.05) 100%);
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  border-radius: 12px;
+  padding: 24px;
+  text-align: center;
+  margin-top: 0;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.quick-email-section h4 {
+  font-family: var(--font-code);
+  font-size: 1.1rem;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+}
+.quick-email-section p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  margin-bottom: 20px;
+}
+.quick-email-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.15) 0%, rgba(129, 140, 248, 0.15) 100%);
+  border: 1px solid var(--accent-cyan);
+  color: var(--accent-cyan);
+  padding: 14px 28px;
+  border-radius: 10px;
+  font-family: var(--font-code);
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+.quick-email-btn:hover {
+  background: var(--accent-cyan);
+  color: #0b0e14;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(56, 189, 248, 0.4);
+}
+.quick-email-btn i {
+  font-size: 1.2rem;
 }
 .contact-info {
   display: flex;

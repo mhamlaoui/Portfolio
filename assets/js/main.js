@@ -71,7 +71,16 @@ document.addEventListener('DOMContentLoaded', () => {
                     showNotification(result.message || 'Erreur lors de l\'envoi.', 'error');
                 }
             } catch (error) {
-                showNotification('Erreur de connexion. Veuillez réessayer.', 'error');
+                // Fallback: open email client with pre-filled data
+                const mailtoSubject = encodeURIComponent(formData.subject);
+                const mailtoBody = encodeURIComponent(
+                    `Nom: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
+                );
+                const mailtoLink = `mailto:im.hamlaoui@gmail.com?subject=${mailtoSubject}&body=${mailtoBody}`;
+                
+                // Show info and open email client
+                showNotification('Ouverture de votre client email...', 'success');
+                window.location.href = mailtoLink;
             }
             
             // Reset button

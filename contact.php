@@ -1,7 +1,16 @@
 <?php
+// Include PHPMailer
+require_once __DIR__ . '/phpmailer/PHPMailer.php';
+require_once __DIR__ . '/phpmailer/SMTP.php';
+require_once __DIR__ . '/phpmailer/Exception.php';
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
 header('Content-Type: application/json');
 header('Access-Control-Allow-Origin: *');
-header('Access-Control-Allow-Methods: POST');
+header('Access-Control-Allow-Methods: POST, OPTIONS');
 header('Access-Control-Allow-Headers: Content-Type');
 
 // Handle preflight request
@@ -18,7 +27,15 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 }
 
 // Get POST data
-$data = json_decode(file_get_contents('php://input'), true);
+$raw_input = file_get_contents('php://input');
+$data = json_decode($raw_input, true);
+
+// Check if JSON decode failed
+if ($data === null && json_last_error() !== JSON_ERROR_NONE) {
+    http_response_code(400);
+    echo json_encode(['success' => false, 'message' => 'Invalid JSON data']);
+    exit();
+}
 
 // Validate required fields
 $required_fields = ['name', 'email', 'subject', 'message'];
@@ -43,35 +60,64 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     exit();
 }
 
-// Your email address
-$to = 'im.hamlaoui@gmail.com';
+// Log the message (backup)
+$log_file = __DIR__ . '/contact_messages.log';
+$log_entry = "=== " . date('Y-m-d H:i:s') . " ===\n";
+$log_entry .= "Nom: $name\n";
+$log_entry .= "Email: $email\n";
+$log_entry .= "Sujet: $subject\n";
+$log_entry .= "Message: $message\n\n";
+file_put_contents($log_file, $log_entry, FILE_APPEND | LOCK_EX);
 
-// Email subject
-$email_subject = "[Portfolio Contact] $subject";
+// =====================================================
+// GMAIL SMTP CONFIGURATION
+// =====================================================
+// To use this, you need to:
+// 1. Enable 2-Factor Authentication on your Gmail account
+// 2. Create an App Password at: https://myaccount.google.com/apppasswords
+// 3. Replace 'YOUR_APP_PASSWORD' below with the 16-character app password
+// =====================================================
 
-// Email body
-$email_body = "Vous avez reçu un nouveau message depuis votre portfolio.\n\n";
-$email_body .= "Nom: $name\n";
-$email_body .= "Email: $email\n";
-$email_body .= "Sujet: $subject\n\n";
-$email_body .= "Message:\n$message\n";
+$gmail_username = 'im.hamlaoui@gmail.com';
+$gmail_app_password = 'vwlnkzhzdjtmysiw'; // Gmail App Password
 
-// Email headers
-$headers = "From: $name <$email>\r\n";
-$headers .= "Reply-To: $email\r\n";
-$headers .= "X-Mailer: PHP/" . phpversion();
+try {
+    $mail = new PHPMailer(true);
 
-// Send email
-$mail_sent = @mail($to, $email_subject, $email_body, $headers);
+    // SMTP Configuration
+    $mail->isSMTP();
+    $mail->Host = 'smtp.gmail.com';
+    $mail->SMTPAuth = true;
+    $mail->Username = $gmail_username;
+    $mail->Password = $gmail_app_password;
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+    $mail->Port = 587;
+    $mail->CharSet = 'UTF-8';
 
-if ($mail_sent) {
+    // Email settings
+    $mail->setFrom($gmail_username, 'Portfolio Contact');
+    $mail->addAddress($gmail_username); // Send to yourself
+    $mail->addReplyTo($email, $name);   // Reply goes to the sender
+
+    // Email content
+    $mail->isHTML(false);
+    $mail->Subject = "[Portfolio] $subject";
+    $mail->Body = "Nouveau message depuis votre portfolio\n\n";
+    $mail->Body .= "Nom: $name\n";
+    $mail->Body .= "Email: $email\n";
+    $mail->Body .= "Sujet: $subject\n\n";
+    $mail->Body .= "Message:\n$message\n";
+
+    $mail->send();
+
     echo json_encode(['success' => true, 'message' => 'Votre message a été envoyé avec succès!']);
-} else {
-    // If mail fails, log the message to a file as backup
-    $log_file = __DIR__ . '/contact_messages.log';
-    $log_entry = date('Y-m-d H:i:s') . " | Name: $name | Email: $email | Subject: $subject | Message: $message\n";
-    file_put_contents($log_file, $log_entry, FILE_APPEND | LOCK_EX);
-    
+
+} catch (Exception $e) {
+    // Email failed, but message is logged
     http_response_code(500);
-    echo json_encode(['success' => false, 'message' => 'Erreur lors de l\'envoi. Veuillez réessayer ou me contacter directement.']);
+    echo json_encode([
+        'success' => false,
+        'message' => 'Erreur lors de l\'envoi. Message enregistré.',
+        'debug' => $mail->ErrorInfo  // Remove this line in production
+    ]);
 }
