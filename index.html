@@ -1,375 +1,397 @@
 <!doctype html>
-<html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ilias Hamlaoui | Portfolio</title>
+<html lang="fr" id="html-root">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ilias Hamlaoui | Portfolio</title>
 
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;700&display=swap"
+    rel="stylesheet" />
 
-    <link rel="stylesheet" href="assets/css/style.css" />
-  </head>
-  <body id="top">
-    <nav class="navbar">
-      <div class="container nav-content">
-        <a href="#top" class="logo">Ilias.dev</a>
-        <ul class="nav-links">
-          <li><a href="#top">Accueil</a></li>
-          <li><a href="#about">À propos</a></li>
-          <li><a href="#resume-preview">CV</a></li>
-          <li><a href="#skills">Stack</a></li>
-          <li><a href="#projects">Projets</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-        <div class="hamburger"><i class="fas fa-bars"></i></div>
-      </div>
-    </nav>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
-    <header id="hero" class="hero-section">
-      <div class="hero-bg-glow"></div>
-      <div class="container hero-content">
-        <div class="svg-container">
-          <svg viewBox="0 0 1000 300">
-            <path id="curve" d="M 50,200 Q 500,50 950,200" fill="transparent" />
-            <text width="1000">
-              <textPath
-                id="text-path"
-                href="#curve"
-                startOffset="50%"
-                text-anchor="middle"
-                class="curved-text"
-              >
-                HELLO I AM ILIAS
-              </textPath>
-            </text>
-          </svg>
-        </div>
-        <div class="hero-text-lower">
-          <p class="subtitle">ÉTUDIANT INFORMATIQUE (L3) • LA ROCHELLE</p>
-          <h1 class="main-heading">Façonner le monde<br />par le code.</h1>
-          <div class="social-grid">
-            <a href="https://github.com/" target="_blank" class="social-card">
-              <i class="fab fa-github"></i> <span>GitHub</span>
-            </a>
-            <a href="https://linkedin.com/" target="_blank" class="social-card">
-              <i class="fab fa-linkedin"></i> <span>LinkedIn</span>
-            </a>
-            <a href="mailto:im.hamlaoui@gmail.com" class="social-card">
-              <i class="fas fa-envelope"></i> <span>Email</span>
-            </a>
-          </div>
+  <link rel="stylesheet" href="assets/css/style.css" />
+
+  <link rel="icon" type="image/png" href="assets/img/emblem.png" />
+  <link rel="apple-touch-icon" href="assets/img/emblem.png" />
+</head>
+
+<body id="top">
+  <nav class="navbar">
+    <div class="container nav-content">
+      <a href="#top" class="logo">Ilias.dev</a>
+      <ul class="nav-links">
+        <li><a href="#top" data-i18n="nav.home">Accueil</a></li>
+        <li><a href="#about" data-i18n="nav.about">À propos</a></li>
+        <li><a href="#resume-preview" data-i18n="nav.cv">CV</a></li>
+        <li><a href="#skills" data-i18n="nav.stack">Stack</a></li>
+        <li><a href="#projects" data-i18n="nav.projects">Projets</a></li>
+        <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
+      </ul>
+      <div class="lang-selector" id="lang-selector">
+        <button class="lang-toggle" id="lang-toggle" title="Changer de langue">
+          <img src="https://flagcdn.com/24x18/fr.png" alt="FR" class="lang-flag-img" id="lang-flag-img">
+          <span class="lang-label">FR</span>
+          <i class="fas fa-chevron-down lang-arrow"></i>
+        </button>
+        <div class="lang-dropdown" id="lang-dropdown">
+          <button class="lang-option" data-lang="fr"><img src="https://flagcdn.com/24x18/fr.png" alt="FR"
+              class="lang-flag-img"> Français</button>
+          <button class="lang-option" data-lang="en"><img src="https://flagcdn.com/24x18/gb.png" alt="EN"
+              class="lang-flag-img"> English</button>
+          <button class="lang-option" data-lang="de"><img src="https://flagcdn.com/24x18/de.png" alt="DE"
+              class="lang-flag-img"> Deutsch</button>
+          <button class="lang-option" data-lang="es"><img src="https://flagcdn.com/24x18/es.png" alt="ES"
+              class="lang-flag-img"> Español</button>
         </div>
       </div>
-    </header>
+      <div class="hamburger"><i class="fas fa-bars"></i></div>
+    </div>
+  </nav>
 
-    <section id="about" class="container section-padding">
-      <div class="about-layout">
-        <div class="about-text">
-          <h2 class="section-title">À Propos</h2>
-          <p class="highlight">
-            "La rigueur technique est la clé de voûte de tout système fiable."
-          </p>
-          <p>
-            Étudiant en <strong>Informatique (L3)</strong> à l'Université de La
-            Rochelle, je me spécialise dans les
-            <strong>Systèmes, Réseaux et le Développement Web</strong>. Mon
-            approche est méthodique : j'aime comprendre ce qui se passe sous le
-            capot, du noyau Linux jusqu'au rendu frontend.
-          </p>
-          <div class="stats-row">
-            <div class="stat-item">
-              <span class="stat-num">C2</span
-              ><span class="stat-label">Anglais</span>
-            </div>
-            <div class="stat-item">
-              <span class="stat-num">3+</span
-              ><span class="stat-label">Années Dev</span>
-            </div>
-            <div class="stat-item">
-              <span class="stat-num">L3</span
-              ><span class="stat-label">Niveau</span>
-            </div>
-          </div>
-        </div>
+  <header id="hero" class="hero-section">
+    <div class="hero-bg-glow"></div>
+    <div class="container hero-content">
+      <div class="svg-container">
+        <svg viewBox="0 0 1000 300">
+          <path id="curve" d="M 50,200 Q 500,50 950,200" fill="transparent" />
+          <text width="1000">
+            <textPath id="text-path" href="#curve" startOffset="50%" text-anchor="middle" class="curved-text">
+              <tspan data-i18n="hero.curved">HELLO I AM ILIAS</tspan>
+            </textPath>
+          </text>
+        </svg>
       </div>
-    </section>
-
-    <section id="resume-preview" class="container section-padding">
-      <div class="resume-window-a4">
-        <div class="window-header">
-          <div class="window-controls">
-            <span class="dot red"></span>
-            <span class="dot yellow"></span>
-            <span class="dot green"></span>
-          </div>
-          <span class="window-title">Cv-Hamlaoui-Ilias.pdf</span>
-          <a
-            href="assets/docs/Cv-Hamlaoui-Ilias.pdf"
-            class="btn-download"
-            download
-          >
-            <i class="fas fa-download"></i> PDF
+      <div class="hero-text-lower">
+        <p class="subtitle" data-i18n="hero.subtitle">ÉTUDIANT INFORMATIQUE (L3) • LA ROCHELLE</p>
+        <h1 class="main-heading" data-i18n="hero.heading" data-i18n-html="true">Façonner le monde<br />par le code.</h1>
+        <div class="social-grid">
+          <a href="https://github.com/mhamlaoui" target="_blank" class="social-card">
+            <i class="fab fa-github"></i> <span>GitHub</span>
+          </a>
+          <a href="https://www.linkedin.com/in/ilias-hamlaoui-15932b3a4" target="_blank" class="social-card">
+            <i class="fab fa-linkedin"></i> <span>LinkedIn</span>
+          </a>
+          <a href="mailto:im.hamlaoui@gmail.com" class="social-card">
+            <i class="fas fa-envelope"></i> <span>Email</span>
           </a>
         </div>
-        <div class="window-body-image">
-          <img
-            src="assets/docs/Cv-Hamlaoui-Ilias.png"
-            alt="CV Preview"
-            class="cv-image"
-          />
-        </div>
       </div>
-    </section>
+    </div>
+  </header>
 
-    <section id="skills" class="container section-padding">
-      <h2 class="section-title">Arsenal Technique</h2>
-      <div class="skills-grid">
-        <div class="skill-category">
-          <h3><i class="fas fa-code"></i> Langages</h3>
-          <div class="tag-container">
-            <span class="tech-tag"><i class="fab fa-python"></i> Python</span>
-            <span class="tech-tag"><i class="fab fa-java"></i> Java</span>
-            <span class="tech-tag"><i class="fas fa-microchip"></i> C</span>
-            <span class="tech-tag"><i class="fas fa-code"></i> C#</span>
-            <span class="tech-tag"><i class="fab fa-js"></i> JavaScript</span>
-            <span class="tech-tag"><i class="fab fa-html5"></i> HTML/CSS</span>
+  <section id="about" class="container section-padding">
+    <div class="about-layout">
+      <div class="about-text">
+        <h2 class="section-title" data-i18n="about.title">À Propos</h2>
+        <p class="highlight" data-i18n="about.quote">
+          "La rigueur technique est la clé de voûte de tout système fiable."
+        </p>
+        <p data-i18n="about.description" data-i18n-html="true">
+          Étudiant en <strong>Informatique (L3)</strong> à l'Université de La
+          Rochelle, je me spécialise dans les
+          <strong>Systèmes, Réseaux et le Développement Web</strong>. Mon
+          approche est méthodique : j'aime comprendre ce qui se passe sous le
+          capot, du noyau Linux jusqu'au rendu frontend.
+        </p>
+        <p class="internship-alert" data-i18n="about.internship"
+          style="margin-top: 15px; color: var(--accent-cyan); font-weight: 500; font-style: italic;">
+          À la recherche d'un stage dans les domaines de la Data Science, de la Cybersécurité ou du DevOps, tout en
+          restant ouvert à d'autres opportunités.
+        </p>
+        <div class="stats-row">
+          <div class="stat-item">
+            <span class="stat-num">C2</span><span class="stat-label" data-i18n="about.stat1">Anglais</span>
           </div>
-        </div>
-
-        <div class="skill-category">
-          <h3><i class="fas fa-database"></i> Backend & Data</h3>
-          <div class="tag-container">
-            <span class="tech-tag"><i class="fab fa-php"></i> PHP</span>
-            <span class="tech-tag"><i class="fas fa-database"></i> SQL</span>
-            <span class="tech-tag"><i class="fas fa-flask"></i> Flask</span>
-            <span class="tech-tag"><i class="fas fa-table"></i> Pandas</span>
-            <span class="tech-tag"
-              ><i class="fas fa-chart-line"></i> Matplotlib</span
-            >
-            <span class="tech-tag"
-              ><i class="fas fa-chart-pie"></i> Orange</span
-            >
+          <div class="stat-item">
+            <span class="stat-num">3+</span><span class="stat-label" data-i18n="about.stat2">Années Dev</span>
           </div>
-        </div>
-
-        <div class="skill-category">
-          <h3><i class="fas fa-terminal"></i> Systèmes & Outils</h3>
-          <div class="tag-container">
-            <span class="tech-tag"><i class="fab fa-linux"></i> Linux</span>
-            <span class="tech-tag"><i class="fas fa-terminal"></i> Bash</span>
-            <span class="tech-tag"><i class="fab fa-git-alt"></i> Git</span>
-            <span class="tech-tag"><i class="fab fa-docker"></i> Docker</span>
-            <span class="tech-tag"
-              ><i class="fas fa-project-diagram"></i> UML</span
-            >
-            <span class="tech-tag"
-              ><i class="fas fa-network-wired"></i> Wireshark</span
-            >
+          <div class="stat-item">
+            <span class="stat-num">L3</span><span class="stat-label" data-i18n="about.stat3">Niveau</span>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section id="projects" class="container section-padding">
-      <h2 class="section-title">Projets Réalisés</h2>
-      <p class="section-subtitle">Découvrez mes réalisations les plus récentes</p>
-      <div class="projects-grid">
-        
-        <article class="project-card featured">
-          <div class="project-image-wrapper">
-            <div class="project-overlay">
-              <span class="project-category">Jeu Vidéo</span>
-            </div>
-          </div>
-          <div class="project-content">
-            <div class="card-top">
-              <h3>Immersion</h3>
-              <div class="card-links">
-                <a href="https://github.com/mhamlaoui/immersion" target="_blank" title="Voir le code"><i class="fab fa-github"></i></a>
-              </div>
-            </div>
-            <div class="tech-badges">
-              <span class="tech-badge">Unity</span>
-              <span class="tech-badge">C#</span>
-              <span class="tech-badge">Trello</span>
-            </div>
-            <p class="description">Développement complet d'un jeu 2D platformer. <strong>Lead Developer</strong> & <strong>Scrum Master</strong>.</p>
-            <div class="project-footer">
-              <span class="project-status completed"><i class="fas fa-check-circle"></i> Terminé</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="project-card">
-          <div class="project-image-wrapper">
-            <div class="project-overlay">
-              <span class="project-category">Data Science</span>
-            </div>
-          </div>
-          <div class="project-content">
-            <div class="card-top">
-              <h3>Cyber360</h3>
-              <div class="card-links">
-                <a href="https://github.com/mhamlaoui/CyberSecurity360" target="_blank" title="Voir le code"><i class="fab fa-github"></i></a>
-              </div>
-            </div>
-            <div class="tech-badges">
-              <span class="tech-badge">Python</span>
-              <span class="tech-badge">Flask</span>
-              <span class="tech-badge">Pandas</span>
-              <span class="tech-badge">IA</span>
-            </div>
-            <p class="description">Visualisation cyber-attaques temps réel. Modèle IA pour estimer les pertes financières.</p>
-            <div class="project-footer">
-              <span class="project-status completed"><i class="fas fa-check-circle"></i> Terminé</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="project-card">
-          <div class="project-image-wrapper">
-            <div class="project-overlay">
-              <span class="project-category">Web App</span>
-            </div>
-          </div>
-          <div class="project-content">
-            <div class="card-top">
-              <h3>CoCoVoit</h3>
-              <div class="card-links">
-                <a href="https://github.com/mhamlaoui/CocoLaRochelle" target="_blank" title="Voir le code"><i class="fab fa-github"></i></a>
-              </div>
-            </div>
-            <div class="tech-badges">
-              <span class="tech-badge">PHP</span>
-              <span class="tech-badge">SQL</span>
-              <span class="tech-badge">JS</span>
-              <span class="tech-badge">Git</span>
-            </div>
-            <p class="description">Plateforme de covoiturage écologique. Création API backend, système de trajets et authentification.</p>
-            <div class="project-footer">
-              <span class="project-status completed"><i class="fas fa-check-circle"></i> Terminé</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="project-card">
-          <div class="project-image-wrapper">
-            <div class="project-overlay">
-              <span class="project-category">WordPress</span>
-            </div>
-          </div>
-          <div class="project-content">
-            <div class="card-top">
-              <h3>FYC Events</h3>
-              <div class="card-links">
-                <a href="#" target="_blank" title="Visiter le site"><i class="fas fa-external-link-alt"></i></a>
-              </div>
-            </div>
-            <div class="tech-badges">
-              <span class="tech-badge">WordPress</span>
-              <span class="tech-badge">UI/UX</span>
-            </div>
-            <p class="description">Site de billetterie événementielle. Mise en place de l'architecture et optimisation UI.</p>
-            <div class="project-footer">
-              <span class="project-status completed"><i class="fas fa-check-circle"></i> Terminé</span>
-            </div>
-          </div>
-        </article>
-
+  <section id="resume-preview" class="container section-padding">
+    <div class="resume-window-a4">
+      <div class="window-header">
+        <div class="window-controls">
+          <span class="dot red"></span>
+          <span class="dot yellow"></span>
+          <span class="dot green"></span>
+        </div>
+        <span class="window-title">Cv-Hamlaoui-Ilias.pdf</span>
+        <a href="assets/docs/Cv-Hamlaoui-Ilias.pdf" class="btn-download" download>
+          <i class="fas fa-download"></i> PDF
+        </a>
       </div>
-    </section>
+      <div class="window-body-image">
+        <img src="assets/docs/Cv-Hamlaoui-Ilias.png" alt="CV Preview" class="cv-image" />
+      </div>
+    </div>
+  </section>
 
-    <section id="contact" class="container section-padding">
-      <h2 class="section-title">Me Contacter</h2>
-      <p class="section-subtitle">Une question, un projet ? N'hésitez pas à me contacter</p>
-      
-      <div class="contact-wrapper">
-        <div class="contact-info">
-          <div class="contact-card">
-            <div class="contact-icon">
-              <i class="fas fa-phone-alt"></i>
-            </div>
-            <div class="contact-details">
-              <h4>Téléphone</h4>
-              <a href="tel:+33780427784">+33 7 80 42 77 84</a>
-            </div>
-          </div>
-          
-          <div class="contact-card">
-            <div class="contact-icon">
-              <i class="fas fa-envelope"></i>
-            </div>
-            <div class="contact-details">
-              <h4>Email</h4>
-              <span class="email-text">im.hamlaoui@gmail.com</span>
-            </div>
-          </div>
-          
-          <div class="contact-card">
-            <div class="contact-icon">
-              <i class="fas fa-map-marker-alt"></i>
-            </div>
-            <div class="contact-details">
-              <h4>Localisation</h4>
-              <span>La Rochelle, France</span>
-            </div>
-          </div>
-          
-          <div class="quick-email-section">
-            <h4><i class="fas fa-bolt"></i> Préférez un email direct ?</h4>
-            <p>Ouvrez votre client mail avec un message pré-rempli</p>
-            <a href="mailto:im.hamlaoui@gmail.com?subject=Contact%20depuis%20votre%20Portfolio&body=Bonjour%20Ilias%2C%0A%0AJe%20vous%20contacte%20depuis%20votre%20portfolio.%0A%0A" class="quick-email-btn">
-              <i class="fas fa-envelope-open-text"></i>
-              <span>Ouvrir mon client mail</span>
-            </a>
+  <section id="skills" class="container section-padding">
+    <h2 class="section-title" data-i18n="skills.title">Arsenal Technique</h2>
+    <div class="skills-grid">
+      <div class="skill-category">
+        <h3><i class="fas fa-code"></i> <span data-i18n="skills.languages">Langages</span></h3>
+        <div class="tag-container">
+          <span class="tech-tag"><i class="fab fa-python"></i> Python</span>
+          <span class="tech-tag"><i class="fab fa-java"></i> Java</span>
+          <span class="tech-tag"><i class="fas fa-microchip"></i> C</span>
+          <span class="tech-tag"><i class="fas fa-code"></i> C#</span>
+          <span class="tech-tag"><i class="fab fa-js"></i> JavaScript</span>
+          <span class="tech-tag"><i class="fab fa-html5"></i> HTML/CSS</span>
+        </div>
+      </div>
+
+      <div class="skill-category">
+        <h3><i class="fas fa-database"></i> <span data-i18n="skills.backend">Backend & Data</span></h3>
+        <div class="tag-container">
+          <span class="tech-tag"><i class="fab fa-php"></i> PHP</span>
+          <span class="tech-tag"><i class="fas fa-database"></i> SQL</span>
+          <span class="tech-tag"><i class="fas fa-flask"></i> Flask</span>
+          <span class="tech-tag"><i class="fas fa-table"></i> Pandas</span>
+          <span class="tech-tag"><i class="fas fa-chart-line"></i> Matplotlib</span>
+          <span class="tech-tag"><i class="fas fa-chart-pie"></i> Orange</span>
+        </div>
+      </div>
+
+      <div class="skill-category">
+        <h3><i class="fas fa-terminal"></i> <span data-i18n="skills.systems">Systèmes & Outils</span></h3>
+        <div class="tag-container">
+          <span class="tech-tag"><i class="fab fa-linux"></i> Linux</span>
+          <span class="tech-tag"><i class="fas fa-terminal"></i> Bash</span>
+          <span class="tech-tag"><i class="fab fa-git-alt"></i> Git</span>
+          <span class="tech-tag"><i class="fab fa-docker"></i> Docker</span>
+          <span class="tech-tag"><i class="fas fa-project-diagram"></i> UML</span>
+          <span class="tech-tag"><i class="fas fa-network-wired"></i> Wireshark</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="container section-padding">
+    <h2 class="section-title" data-i18n="projects.title">Projets Réalisés</h2>
+    <p class="section-subtitle" data-i18n="projects.subtitle">Découvrez mes réalisations les plus récentes</p>
+    <div class="projects-grid">
+
+      <article class="project-card featured">
+        <div class="project-image-wrapper">
+          <div class="project-overlay">
+            <span class="project-category" data-i18n="projects.cat.game">Jeu Vidéo</span>
           </div>
         </div>
-        
-        <form class="contact-form" id="contact-form">
-          <div class="form-group">
-            <label for="name">Nom complet</label>
-            <input type="text" id="name" name="name" placeholder="Votre nom" required>
+        <div class="project-content">
+          <div class="card-top">
+            <h3>Immersion</h3>
+            <div class="card-links">
+              <a href="https://github.com/mhamlaoui/immersion" target="_blank" title="Voir le code"><i
+                  class="fab fa-github"></i></a>
+            </div>
           </div>
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" placeholder="votre@email.com" required>
+          <div class="tech-badges">
+            <span class="tech-badge">Unity</span>
+            <span class="tech-badge">C#</span>
+            <span class="tech-badge">Trello</span>
           </div>
-          <div class="form-group">
-            <label for="subject">Sujet</label>
-            <input type="text" id="subject" name="subject" placeholder="Sujet de votre message" required>
+          <p class="description" data-i18n="projects.immersion.desc" data-i18n-html="true">Développement complet d'un
+            jeu 2D platformer. <strong>Lead Developer</strong> & <strong>Scrum Master</strong>.</p>
+          <div class="project-footer">
+            <span class="project-status completed"><i class="fas fa-check-circle"></i> <span
+                data-i18n="projects.status.done">Terminé</span></span>
           </div>
-          <div class="form-group">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" rows="5" placeholder="Votre message..." required></textarea>
-          </div>
-          <button type="submit" class="btn-submit">
-            <span>Envoyer</span>
-            <i class="fas fa-paper-plane"></i>
-          </button>
-        </form>
-      </div>
-    </section>
-
-    <footer>
-      <div class="container footer-content">
-        <div class="footer-links">
-          <a href="https://github.com/mhamlaoui" target="_blank"><i class="fab fa-github"></i></a>
-          <a href="https://linkedin.com/" target="_blank"><i class="fab fa-linkedin"></i></a>
-          <a href="mailto:im.hamlaoui@gmail.com"><i class="fas fa-envelope"></i></a>
         </div>
-        <p>&copy; 2026 Ilias Hamlaoui. Built with Code.</p>
+      </article>
+
+      <article class="project-card">
+        <div class="project-image-wrapper">
+          <div class="project-overlay">
+            <span class="project-category">Data Science</span>
+          </div>
+        </div>
+        <div class="project-content">
+          <div class="card-top">
+            <h3>Cyber360</h3>
+            <div class="card-links">
+              <a href="https://github.com/mhamlaoui/CyberSecurity360" target="_blank" title="Voir le code"><i
+                  class="fab fa-github"></i></a>
+            </div>
+          </div>
+          <div class="tech-badges">
+            <span class="tech-badge">Python</span>
+            <span class="tech-badge">Flask</span>
+            <span class="tech-badge">Pandas</span>
+            <span class="tech-badge">IA</span>
+          </div>
+          <p class="description" data-i18n="projects.cyber360.desc">Visualisation cyber-attaques temps réel. Modèle IA
+            pour estimer les pertes financières.</p>
+          <div class="project-footer">
+            <span class="project-status completed"><i class="fas fa-check-circle"></i> <span
+                data-i18n="projects.status.done">Terminé</span></span>
+          </div>
+        </div>
+      </article>
+
+      <article class="project-card">
+        <div class="project-image-wrapper">
+          <div class="project-overlay">
+            <span class="project-category">Web App</span>
+          </div>
+        </div>
+        <div class="project-content">
+          <div class="card-top">
+            <h3>CoCoVoit</h3>
+            <div class="card-links">
+              <a href="https://github.com/mhamlaoui/CocoLaRochelle" target="_blank" title="Voir le code"><i
+                  class="fab fa-github"></i></a>
+            </div>
+          </div>
+          <div class="tech-badges">
+            <span class="tech-badge">PHP</span>
+            <span class="tech-badge">SQL</span>
+            <span class="tech-badge">JS</span>
+            <span class="tech-badge">Git</span>
+          </div>
+          <p class="description" data-i18n="projects.cocovoit.desc">Plateforme de covoiturage écologique. Création API
+            backend, système de trajets et authentification.</p>
+          <div class="project-footer">
+            <span class="project-status completed"><i class="fas fa-check-circle"></i> <span
+                data-i18n="projects.status.done">Terminé</span></span>
+          </div>
+        </div>
+      </article>
+
+      <article class="project-card">
+        <div class="project-image-wrapper">
+          <div class="project-overlay">
+            <span class="project-category">WordPress</span>
+          </div>
+        </div>
+        <div class="project-content">
+          <div class="card-top">
+            <h3>FYC Events</h3>
+            <div class="card-links">
+              <a href="#" target="_blank" title="Visiter le site"><i class="fas fa-external-link-alt"></i></a>
+            </div>
+          </div>
+          <div class="tech-badges">
+            <span class="tech-badge">WordPress</span>
+            <span class="tech-badge">UI/UX</span>
+          </div>
+          <p class="description" data-i18n="projects.fyc.desc">Site de billetterie événementielle. Mise en place de
+            l'architecture et optimisation UI.</p>
+          <div class="project-footer">
+            <span class="project-status unavailable" style="color: var(--text-secondary);"><i
+                class="fas fa-times-circle"></i> <span
+                data-i18n="projects.status.unavailable">Indisponible</span></span>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section id="contact" class="container section-padding">
+    <h2 class="section-title" data-i18n="contact.title">Me Contacter</h2>
+    <p class="section-subtitle" data-i18n="contact.subtitle">Une question, un projet ? N'hésitez pas à me contacter</p>
+
+    <div class="contact-wrapper">
+      <div class="contact-info">
+        <div class="contact-card">
+          <div class="contact-icon">
+            <i class="fas fa-phone-alt"></i>
+          </div>
+          <div class="contact-details">
+            <h4 data-i18n="contact.phone">Téléphone</h4>
+            <a href="tel:+33780427784">+33 7 80 42 77 84</a>
+          </div>
+        </div>
+
+        <div class="contact-card">
+          <div class="contact-icon">
+            <i class="fas fa-envelope"></i>
+          </div>
+          <div class="contact-details">
+            <h4>Email</h4>
+            <span class="email-text" data-i18n="contact.email.value">im.hamlaoui@gmail.com</span>
+          </div>
+        </div>
+
+        <div class="contact-card">
+          <div class="contact-icon">
+            <i class="fas fa-map-marker-alt"></i>
+          </div>
+          <div class="contact-details">
+            <h4 data-i18n="contact.location">Localisation</h4>
+            <span data-i18n="contact.location.value">La Rochelle, France</span>
+          </div>
+        </div>
+
+        <div class="quick-email-section">
+          <h4><i class="fas fa-bolt"></i> <span data-i18n="contact.quick.title">Préférez un email direct ?</span></h4>
+          <p data-i18n="contact.quick.desc">Ouvrez votre client mail avec un message pré-rempli</p>
+          <a href="mailto:im.hamlaoui@gmail.com?subject=Contact%20depuis%20votre%20Portfolio&body=Bonjour%20Ilias%2C%0A%0AJe%20vous%20contacte%20depuis%20votre%20portfolio.%0A%0A"
+            class="quick-email-btn" id="quick-email-link">
+            <i class="fas fa-envelope-open-text"></i>
+            <span data-i18n="contact.quick.btn">Ouvrir mon client mail</span>
+          </a>
+        </div>
       </div>
-    </footer>
-    <script src="assets/js/main.js"></script>
-  </body>
+
+      <form class="contact-form" id="contact-form">
+        <div class="form-group">
+          <label for="name" data-i18n="contact.form.name">Nom complet</label>
+          <input type="text" id="name" name="name" placeholder="Votre nom" required>
+        </div>
+        <div class="form-group">
+          <label for="email" data-i18n="contact.form.email">Email</label>
+          <input type="email" id="email" name="email" placeholder="votre@email.com" required>
+        </div>
+        <div class="form-group">
+          <label for="subject" data-i18n="contact.form.subject">Sujet</label>
+          <input type="text" id="subject" name="subject" data-i18n-placeholder="contact.form.subject.ph"
+            placeholder="Sujet de votre message" required>
+        </div>
+        <div class="form-group">
+          <label for="message" data-i18n="contact.form.message">Message</label>
+          <textarea id="message" name="message" rows="5" data-i18n-placeholder="contact.form.message.ph"
+            placeholder="Votre message..." required></textarea>
+        </div>
+
+        <!-- Honeypot field (hidden from real users, filled by bots) -->
+        <div class="form-group" style="display:none;" aria-hidden="true">
+          <label for="website">Website</label>
+          <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+        </div>
+
+        <button type="submit" class="btn-submit">
+          <span data-i18n="contact.form.send">Envoyer</span>
+          <i class="fas fa-paper-plane"></i>
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container footer-content">
+      <div class="footer-links">
+        <a href="https://github.com/mhamlaoui" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/ilias-hamlaoui-15932b3a4" target="_blank" aria-label="LinkedIn"><i
+            class="fab fa-linkedin"></i></a>
+        <a href="mailto:im.hamlaoui@gmail.com"><i class="fas fa-envelope"></i></a>
+      </div>
+      <p data-i18n="footer.copy">&copy; 2026 Ilias Hamlaoui. Built with Code.</p>
+    </div>
+  </footer>
+  <script src="assets/js/main.js"></script>
+</body>
+
 </html>
