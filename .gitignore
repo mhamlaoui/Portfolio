@@ -4,3 +4,11 @@ node_modules/
 dist/
 build/
 *.log
+
+.env.*
+!.env.example
+public/
+.vercel/
+.idea/
+# Old CVs: kept locally, not published
+assets/docs/Cv-*

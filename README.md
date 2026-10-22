@@ -1,21 +1,27 @@
 # Portfolio — Ilias Hamlaoui
 
-Responsive vanilla HTML, CSS and JavaScript portfolio, with French, English, German and Spanish translations. Hosted on Vercel, with a Node.js serverless contact endpoint.
+Static HTML/CSS/JavaScript portfolio with French, English, German and Spanish content, local fonts and project images, and a Node.js contact endpoint.
 
-## Local preview
+## Run locally
 
-Run `python -m http.server 8765` in this folder, then open http://localhost:8765. Static preview supports all content, navigation and PDF downloads. Sending messages requires the serverless runtime.
+Use Node 24:
 
-## Contact configuration
+```sh
+npm ci
+npm test
+npm run dev
+```
 
-Configure `GMAIL_USERNAME` and `GMAIL_APP_PASSWORD` in the hosting environment. The existing `/api/contact` endpoint uses Nodemailer. Never commit credentials. Failed submissions preserve the message and display an inline error; visitors can use the direct email link.
+Open http://127.0.0.1:8765. The preview serves only the public build with security headers. Contact submissions report unavailable until the production services and origin are configured; no local fake success is displayed.
+
+## Production
+
+Read [DEPLOYMENT.md](DEPLOYMENT.md) and `.env.example`. The recommended setup is Vercel (Paris function), Brevo transactional email, and the existing Gmail inbox. The published `public/` directory excludes server source, secrets, tests and older CV assets. The API is deployed separately from `api/contact.js`.
 
 ## Content
 
-The October 2026 refresh follows the supplied Profile.pdf: M1 CRYPTIS at Université de Limoges, Doumassi full stack experience (April–June 2026), and computer science studies at La Rochelle (2023–2026). The master end date is marked expected. Location remains La Rochelle as listed in the source profile.
+The supplied profile is the basis for M1 CRYPTIS, Doumassi and education information. It is downloadable unchanged. Project screenshots were supplied by the owner. Virus is described from its local C/GTK source and explicitly labelled a prototype. Its thumbnail is an AI-generated conceptual illustration, labelled as an illustration rather than an application screenshot. The supplied portrait is displayed unchanged; the profile preview is rendered from the first page of the downloadable PDF.
 
-The current download is `assets/docs/Profile-Ilias-Hamlaoui.pdf`, an unchanged copy of the supplied PDF. Older CV assets remain in the repository but are no longer linked. Project screenshots are supplied assets. FYC Events has been replaced by Virus, linked to https://github.com/LR-tak/Virus. Its description is based on the local C/GTK source: image viewing, executable-directory scanning, and accompanying utilities. It is labelled as a prototype; infection/control-transfer logic is still a TODO in the source.
+## Privacy and security
 
-## Validation
-
-Checked in headless Microsoft Edge: four languages, widths 320/390/768/1024/1440px without horizontal overflow, mobile menu and Escape handling, PDF response, invalid stored-language recovery, and mocked contact success/error responses. Desktop and mobile screenshots reviewed. No live email was sent and no deployment was performed.
+No analytics, tracking embeds or external font/icon/flag requests. Deliberately selected language and light/dark appearance preferences are stored locally for up to 180 days. System appearance follows the device without saving a theme preference. Privacy/legal pages are linked at the form and footer. The contact API validates input, restricts origins, checks a honeypot, prevents concurrent browser submissions, and sends only plain text to a fixed recipient. See the deployment guide for operator obligations, provider retention/transfers and remaining live verification.
